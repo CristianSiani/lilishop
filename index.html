@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>LiliShop | Tienda de Ropa con Estilo</title>
+    <title>Shops LB | Tienda de Ropa con Estilo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
@@ -47,17 +47,34 @@
             display: block;
         }
 
+        /* Menu Hamburguesa para móvil */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: #d14b8f;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
         .nav-links a {
-            margin-left: 2rem;
             text-decoration: none;
             font-weight: 600;
             color: #4a2e2a;
             transition: 0.2s;
+            padding: 0.5rem 1rem;
         }
         .nav-links a:hover { color: #d14b8f; }
 
         .btn-admin-toggle {
-            margin-left: 2rem;
             background: linear-gradient(135deg, #d14b8f, #f7b05e);
             color: white;
             border: none;
@@ -71,6 +88,53 @@
         }
         .btn-admin-toggle:hover { opacity: 0.85; transform: scale(1.02); }
 
+        /* Estilos responsive para menú */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0.8rem 1.2rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+                order: 2;
+            }
+            
+            .logo {
+                order: 1;
+            }
+            
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                order: 3;
+                padding: 1rem 0;
+                gap: 0.8rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem;
+                border-radius: 40px;
+            }
+            
+            .nav-links a:hover {
+                background: #fce4f3;
+            }
+            
+            .btn-admin-toggle {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }
+
         .hero {
             background: linear-gradient(120deg, #ffe9df 0%, #fff3e8 100%);
             padding: 4rem 2rem;
@@ -78,6 +142,12 @@
         }
         .hero h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; color: #2d1c15; }
         .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; color: #6b4c3b; }
+
+        @media (max-width: 700px) {
+            .hero { padding: 2.5rem 1rem; }
+            .hero h2 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+        }
 
         .btn {
             background: #d14b8f;
@@ -101,6 +171,11 @@
             text-align: center;
             letter-spacing: -0.3px;
             color: #3a2a24;
+        }
+
+        @media (max-width: 700px) {
+            .productos { padding: 2rem 1rem; }
+            .section-title { font-size: 1.6rem; }
         }
 
         .grid {
@@ -195,6 +270,7 @@
             margin-bottom: 1.5rem;
             border-bottom: 2px solid #f0cfbf;
             padding-bottom: 0.5rem;
+            flex-wrap: wrap;
         }
         .tab-btn {
             background: none;
@@ -348,6 +424,14 @@
         .alerta-admin.exito { background: #d1e7dd; color: #0f5132; display: block; }
         .alerta-admin.error { background: #f8d7da; color: #842029; display: block; }
 
+        @media (max-width: 700px) {
+            .admin-panel { padding: 1.5rem; }
+            .admin-form { grid-template-columns: 1fr; }
+            .admin-prod-item { flex-wrap: wrap; }
+            .admin-prod-acciones { margin-top: 0.5rem; width: 100%; justify-content: flex-end; }
+            .admin-tabs { justify-content: center; }
+        }
+
         /* =================== SECCIÓN PEDIDO =================== */
         .pedido-email {
             background: #ffffff;
@@ -374,7 +458,50 @@
         .btn-enviar:hover { background: #f7b05e; color: #2d1c15; }
         .mensaje-envio { margin-top: 1rem; text-align: center; font-weight: 500; }
 
+        @media (max-width: 700px) {
+            .pedido-email { margin: 1.5rem 1rem; padding: 1.5rem; }
+            .pedido-email h3 { font-size: 1.5rem; }
+        }
+
         footer { background: #2d1c15; color: #f0cfbf; text-align: center; padding: 2rem; margin-top: 3rem; }
+        
+        footer .contactos-footer {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        footer .contactos-footer a {
+            color: #f7b05e;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        
+        footer .contactos-footer a:hover {
+            color: #d14b8f;
+        }
+        
+        footer .email-footer {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        footer .email-footer a {
+            color: #f7b05e;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        footer .email-footer a:hover {
+            color: #d14b8f;
+        }
+        
+        @media (max-width: 500px) {
+            footer .contactos-footer { gap: 1rem; flex-direction: column; align-items: center; }
+        }
 
         .whatsapp-chat {
             position: fixed;
@@ -415,12 +542,9 @@
         }
         .whatsapp-chat:hover + .tooltip-wa { opacity: 1; }
 
-        @media (max-width: 700px) {
-            .header { flex-direction: column; gap: 0.5rem; }
-            .nav-links a { margin: 0 1rem; }
-            .hero h2 { font-size: 2rem; }
-            .admin-form { grid-template-columns: 1fr; }
-            .admin-prod-item { flex-wrap: wrap; }
+        @media (max-width: 500px) {
+            .whatsapp-chat { width: 50px; height: 50px; font-size: 26px; bottom: 15px; right: 15px; }
+            .tooltip-wa { bottom: 75px; right: 15px; font-size: 0.7rem; white-space: normal; max-width: 180px; text-align: center; }
         }
 
         /* =================== LOGIN ADMIN =================== */
@@ -526,17 +650,38 @@
             transition: 0.2s;
         }
         .btn-cerrar-login:hover { background: #d14b8f; color: white; }
+        
+        /* Info de contacto en el pedido */
+        .contacto-info {
+            background: #fef9f0;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border: 1px dashed #f0cfbf;
+        }
+        .contacto-info p {
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+        }
+        .contacto-info i {
+            color: #d14b8f;
+            margin-right: 0.5rem;
+        }
     </style>
 </head>
 <body>
 
 <header class="header">
     <div class="logo">
-        <h1>LILISHOP<span>Moda con proposito</span></h1>
+        <h1>SHOPS LB<span>Moda con propósito</span></h1>
     </div>
-    <div class="nav-links">
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links" id="navLinks">
         <a href="#">Inicio</a>
-        <a href="#productos">Coleccion</a>
+        <a href="#productos">Colección</a>
         <a href="#pedido">Pedido por email</a>
         <a href="#contacto">Contacto</a>
         <button class="btn-admin-toggle" id="abrirAdmin">
@@ -551,18 +696,18 @@
         <button class="btn-cerrar-login" id="cerrarLogin" title="Cancelar"><i class="fas fa-times"></i></button>
         <div class="login-icono"><i class="fas fa-lock"></i></div>
         <h3>Acceso administrador</h3>
-        <p>Solo el administrador de LiliShop puede gestionar los productos.</p>
+        <p>Solo el administrador de Shops LB puede gestionar los productos.</p>
         <form id="formLogin" autocomplete="off">
             <div class="login-field">
                 <label for="loginUsuario">Usuario</label>
                 <input type="text" id="loginUsuario" placeholder="Ingresa tu usuario" required autocomplete="off">
             </div>
             <div class="login-field">
-                <label for="loginPassword">Contrasena</label>
-                <input type="password" id="loginPassword" placeholder="Ingresa tu contrasena" required>
+                <label for="loginPassword">Contraseña</label>
+                <input type="password" id="loginPassword" placeholder="Ingresa tu contraseña" required>
             </div>
             <button type="submit" class="btn-login-entrar"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
-            <div class="login-error" id="loginError">Usuario o contrasena incorrectos.</div>
+            <div class="login-error" id="loginError">Usuario o contraseña incorrectos.</div>
         </form>
     </div>
 </div>
@@ -601,8 +746,8 @@
                         <input type="number" id="prodPrecio" placeholder="Ej: 59.90" min="0" step="0.01" required>
                     </div>
                     <div class="full">
-                        <label for="prodDescripcion">Descripcion</label>
-                        <textarea id="prodDescripcion" rows="2" placeholder="Descripcion breve del producto..."></textarea>
+                        <label for="prodDescripcion">Descripción</label>
+                        <textarea id="prodDescripcion" rows="2" placeholder="Descripción breve del producto..."></textarea>
                     </div>
                     <div class="full">
                         <label for="prodImagen">URL de imagen</label>
@@ -615,7 +760,7 @@
                         <i class="fas fa-save"></i> Guardar producto
                     </button>
                     <button type="button" class="btn-cancelar-edicion" id="btnCancelarEdicion" style="display:none;">
-                        Cancelar edicion
+                        Cancelar edición
                     </button>
                 </div>
             </form>
@@ -629,43 +774,50 @@
 </div>
 
 <section class="hero">
-    <h2>LiliShop: Tu esencia, tu estilo</h2>
-    <p>Ropa comoda, tendencias actuales y atencion personalizada. Cada prenda cuenta una historia.</p>
-    <a href="#productos" class="btn">Descubrir coleccion &rarr;</a>
+    <h2>Shops LB: Tu esencia, tu estilo</h2>
+    <p>Ropa cómoda, tendencias actuales y atención personalizada. Cada prenda cuenta una historia.</p>
+    <a href="#productos" class="btn">Descubrir colección &rarr;</a>
 </section>
 
 <section id="productos" class="productos">
-    <h2 class="section-title">Lo mas deseado de LiliShop</h2>
+    <h2 class="section-title">Lo más deseado de Shops LB</h2>
     <div class="grid" id="productos-grid"></div>
 </section>
 
 <section id="pedido" class="pedido-email">
     <h3>Realiza tu pedido por Email</h3>
     <p>Selecciona productos, completa tus datos y te enviaremos la factura y seguimiento.</p>
+    
+    <!-- Información de contacto visible para el cliente -->
+    <div class="contacto-info">
+        <p><i class="fas fa-envelope"></i> Envíanos tu pedido a: <strong>shopsLB@hotmail.com</strong></p>
+        <p><i class="fab fa-whatsapp"></i> O escríbenos a WhatsApp: <strong>+549 387 562 4114</strong> / <strong>+549 387 560 4348</strong></p>
+    </div>
+    
     <div style="margin: 1rem 0; background: #fff5ef; padding: 1rem; border-radius: 1rem;">
-        <h4>Tu carrito LiliShop:</h4>
+        <h4>Tu carrito Shops LB:</h4>
         <ul id="lista-pedido" style="margin-left: 1.2rem; min-height: 60px;">
-            <li><i>Aun no hay productos agregados. Haz clic en "Agregar al pedido" en cada prenda.</i></li>
+            <li><i>Aún no hay productos agregados. Haz clic en "Agregar al pedido" en cada prenda.</i></li>
         </ul>
-        <button id="vaciar-carrito" class="btn-card" style="background:#b45f3b; width: auto; padding: 0.3rem 1rem; margin-top: 0.5rem;">Vaciar seleccion</button>
+        <button id="vaciar-carrito" class="btn-card" style="background:#b45f3b; width: auto; padding: 0.3rem 1rem; margin-top: 0.5rem;">Vaciar selección</button>
     </div>
 
     <form id="email-order-form">
         <div class="form-group">
             <label>Nombre completo *</label>
-            <input type="text" id="nombre" required placeholder="Ej: Laura Mendez">
+            <input type="text" id="nombre" required placeholder="Ej: Laura Méndez">
         </div>
         <div class="form-group">
             <label>Email *</label>
             <input type="email" id="email_cliente" required placeholder="laura@example.com">
         </div>
         <div class="form-group">
-            <label>Telefono / WhatsApp (opcional)</label>
-            <input type="tel" id="telefono" placeholder="+56 9 1234 5678">
+            <label>Teléfono / WhatsApp (opcional)</label>
+            <input type="tel" id="telefono" placeholder="+549 387 562 4114">
         </div>
         <div class="form-group">
-            <label>Direccion de envio *</label>
-            <input type="text" id="direccion" required placeholder="Calle, numero, ciudad, codigo postal">
+            <label>Dirección de envío *</label>
+            <input type="text" id="direccion" required placeholder="Calle, número, ciudad, código postal">
         </div>
         <div class="form-group">
             <label>Mensaje o indicaciones especiales</label>
@@ -677,26 +829,59 @@
 </section>
 
 <footer id="contacto">
-    <p>LiliShop - Tu tienda de confianza</p>
-    <p>hola@lilishop.com | +34 600 987 654</p>
-    <p style="margin-top: 1rem; font-size: 0.8rem;">2025 LiliShop - Hecho con amor para ti</p>
+    <p><strong>Shops LB</strong> - Tu tienda de confianza</p>
+    <div class="contactos-footer">
+        <a href="tel:+5493875624114"><i class="fab fa-whatsapp"></i> +549 387 562 4114</a>
+        <a href="tel:+5493875604348"><i class="fab fa-whatsapp"></i> +549 387 560 4348</a>
+    </div>
+    <div class="email-footer">
+        <a href="mailto:shopsLB@hotmail.com"><i class="fas fa-envelope"></i> shopsLB@hotmail.com</a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.8rem;">2025 Shops LB - Hecho con amor para ti</p>
 </footer>
 
-<button id="whatsappBtn" class="whatsapp-chat" aria-label="Chatbot de WhatsApp LiliShop">
+<button id="whatsappBtn" class="whatsapp-chat" aria-label="WhatsApp Shops LB">
     <i class="fab fa-whatsapp"></i>
 </button>
-<div class="tooltip-wa" id="tooltipWa">Hola! Soy el asistente de LiliShop, escribeme</div>
+<div class="tooltip-wa" id="tooltipWa">Hola! Soy el asistente de Shops LB, escríbeme</div>
 
 <script>
+    // =================== MENÚ HAMBURGUESA ===================
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinksMenu = document.getElementById('navLinks');
+    
+    menuToggle.addEventListener('click', () => {
+        navLinksMenu.classList.toggle('active');
+        // Cambiar ícono del botón
+        const icon = menuToggle.querySelector('i');
+        if (navLinksMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinksMenu.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+    });
+
     // =================== PRODUCTOS (localStorage) ===================
-    const PRODUCTOS_KEY = 'lilishop_productos';
+    const PRODUCTOS_KEY = 'shopslb_productos';
 
     const productosDefault = [
-        { id: 1, nombre: "Blazer Lili", precio: 89.90, imagen: "https://picsum.photos/id/20/400/500", descrip: "Estructurado, color crema. Ideal para oficina." },
+        { id: 1, nombre: "Blazer LB", precio: 89.90, imagen: "https://picsum.photos/id/20/400/500", descrip: "Estructurado, color crema. Ideal para oficina." },
         { id: 2, nombre: "Vestido Floral", precio: 59.90, imagen: "https://picsum.photos/id/26/400/500", descrip: "Estampado sutil, tela fresca." },
         { id: 3, nombre: "Cardigan Soft", precio: 69.90, imagen: "https://picsum.photos/id/30/400/500", descrip: "Punto suave, disponible en 4 tonos." },
-        { id: 4, nombre: "Jeans Wide Leg", precio: 79.90, imagen: "https://picsum.photos/id/24/400/500", descrip: "Denim ecologico, corte amplio." },
-        { id: 5, nombre: "Camisa Lili", precio: 49.90, imagen: "https://picsum.photos/id/83/400/500", descrip: "Algodon organico, diseno oversize." },
+        { id: 4, nombre: "Jeans Wide Leg", precio: 79.90, imagen: "https://picsum.photos/id/24/400/500", descrip: "Denim ecológico, corte amplio." },
+        { id: 5, nombre: "Camisa LB", precio: 49.90, imagen: "https://picsum.photos/id/83/400/500", descrip: "Algodón orgánico, diseño oversize." },
         { id: 6, nombre: "Chaqueta Cuero Eco", precio: 139.90, imagen: "https://picsum.photos/id/82/400/500", descrip: "Cuero vegano, ribetes dorados." }
     ];
 
@@ -728,7 +913,7 @@
         gridContainer.innerHTML = '';
 
         if (productosData.length === 0) {
-            gridContainer.innerHTML = '<p style="text-align:center;color:#b08070;grid-column:1/-1;">No hay productos disponibles aun. Agrega productos desde el panel de gestion.</p>';
+            gridContainer.innerHTML = '<p style="text-align:center;color:#b08070;grid-column:1/-1;">No hay productos disponibles aún. Agrega productos desde el panel de gestión.</p>';
             return;
         }
 
@@ -778,6 +963,8 @@
             setTimeout(() => {
                 if (estadoDiv.innerHTML.includes(mensaje)) estadoDiv.innerHTML = '';
             }, 1800);
+        } else {
+            alert(mensaje);
         }
     }
 
@@ -809,7 +996,7 @@
         });
     }
 
-    document.getElementById('vaciar-carrito').addEventListener('click', () => {
+    document.getElementById('vaciar-carrito')?.addEventListener('click', () => {
         carrito = [];
         actualizarListaPedido();
         mostrarNotificacion('Carrito vaciado correctamente');
@@ -824,7 +1011,7 @@
         const mensajeExtra = document.getElementById('mensaje').value.trim() || '';
 
         if (!nombre || !emailCliente || !direccion) {
-            document.getElementById('estado-envio').innerHTML = '<span style="color:#c0392b;">Por favor completa Nombre, Email y Direccion.</span>';
+            document.getElementById('estado-envio').innerHTML = '<span style="color:#c0392b;">Por favor completa Nombre, Email y Dirección.</span>';
             return;
         }
         if (carrito.length === 0) {
@@ -841,20 +1028,21 @@
         });
         detalleProductos += `\n TOTAL DEL PEDIDO: $${totalGeneral.toFixed(2)}`;
 
-        const asunto = `Nuevo pedido LiliShop de ${nombre}`;
-        const cuerpo = `Hola equipo LiliShop,\n\n${nombre} ha realizado el siguiente pedido:\n\n${detalleProductos}\n\n--- DATOS CLIENTE ---\nNombre: ${nombre}\nEmail: ${emailCliente}\nTelefono/WhatsApp: ${telefono}\nDireccion de envio: ${direccion}\nObservaciones adicionales: ${mensajeExtra || "Ninguna"}\n\nEste pedido fue generado desde la web.\n\nAtentamente,\nSistema LiliShop.`;
+        const asunto = `Nuevo pedido Shops LB de ${nombre}`;
+        const cuerpo = `Hola equipo Shops LB,\n\n${nombre} ha realizado el siguiente pedido:\n\n${detalleProductos}\n\n--- DATOS CLIENTE ---\nNombre: ${nombre}\nEmail: ${emailCliente}\nTeléfono/WhatsApp: ${telefono}\nDirección de envío: ${direccion}\nObservaciones adicionales: ${mensajeExtra || "Ninguna"}\n\nEste pedido fue generado desde la web.\n\nAtentamente,\nSistema Shops LB.`;
 
-        const emailDestino = "pedidos@lilishop.com";
+        // Correo actualizado: shopsLB@hotmail.com
+        const emailDestino = "shopsLB@hotmail.com";
         const mailtoLink = `mailto:${emailDestino}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
         window.location.href = mailtoLink;
 
-        document.getElementById('estado-envio').innerHTML = '<span style="color:#27ae60;">Se abrira tu cliente de correo. Revisa y envia el mensaje para completar tu pedido.</span>';
+        document.getElementById('estado-envio').innerHTML = '<span style="color:#27ae60;">Se abrirá tu cliente de correo. Revisa y envía el mensaje para completar tu pedido.</span>';
     }
 
     // =================== PANEL ADMIN ===================
     const ADMIN_USER = 'admin';
-    const ADMIN_PASS = 'lilishop2025';
-    const SESSION_KEY = 'lilishop_admin_auth';
+    const ADMIN_PASS = 'shopslb2025';
+    const SESSION_KEY = 'shopslb_admin_auth';
 
     const adminOverlay = document.getElementById('adminOverlay');
     const loginOverlay = document.getElementById('loginOverlay');
@@ -865,7 +1053,7 @@
         actualizarContador();
     }
 
-    document.getElementById('abrirAdmin').addEventListener('click', () => {
+    document.getElementById('abrirAdmin')?.addEventListener('click', () => {
         if (sessionStorage.getItem(SESSION_KEY) === '1') {
             abrirPanelAdmin();
         } else {
@@ -877,7 +1065,7 @@
         }
     });
 
-    document.getElementById('formLogin').addEventListener('submit', (e) => {
+    document.getElementById('formLogin')?.addEventListener('submit', (e) => {
         e.preventDefault();
         const usuario = document.getElementById('loginUsuario').value.trim();
         const password = document.getElementById('loginPassword').value;
@@ -892,20 +1080,20 @@
         }
     });
 
-    document.getElementById('cerrarLogin').addEventListener('click', () => {
+    document.getElementById('cerrarLogin')?.addEventListener('click', () => {
         loginOverlay.classList.remove('activo');
     });
 
-    loginOverlay.addEventListener('click', (e) => {
+    loginOverlay?.addEventListener('click', (e) => {
         if (e.target === loginOverlay) loginOverlay.classList.remove('activo');
     });
 
-    document.getElementById('cerrarAdmin').addEventListener('click', () => {
+    document.getElementById('cerrarAdmin')?.addEventListener('click', () => {
         adminOverlay.classList.remove('activo');
         sessionStorage.removeItem(SESSION_KEY);
     });
 
-    adminOverlay.addEventListener('click', (e) => {
+    adminOverlay?.addEventListener('click', (e) => {
         if (e.target === adminOverlay) {
             adminOverlay.classList.remove('activo');
             sessionStorage.removeItem(SESSION_KEY);
@@ -924,7 +1112,7 @@
     });
 
     // Preview imagen en tiempo real
-    document.getElementById('prodImagen').addEventListener('input', function() {
+    document.getElementById('prodImagen')?.addEventListener('input', function() {
         const preview = document.getElementById('previewImagen');
         if (this.value.trim()) {
             preview.src = this.value.trim();
@@ -936,7 +1124,7 @@
     });
 
     // Guardar producto (agregar o editar)
-    document.getElementById('formProducto').addEventListener('submit', function(e) {
+    document.getElementById('formProducto')?.addEventListener('submit', function(e) {
         e.preventDefault();
         const nombre = document.getElementById('prodNombre').value.trim();
         const precio = parseFloat(document.getElementById('prodPrecio').value);
@@ -945,7 +1133,7 @@
         const editandoId = document.getElementById('editandoId').value;
 
         if (!nombre || isNaN(precio) || precio < 0) {
-            mostrarAlerta('Completa el nombre y un precio valido.', 'error');
+            mostrarAlerta('Completa el nombre y un precio válido.', 'error');
             return;
         }
 
@@ -974,7 +1162,7 @@
         renderAdminLista();
     });
 
-    document.getElementById('btnCancelarEdicion').addEventListener('click', () => {
+    document.getElementById('btnCancelarEdicion')?.addEventListener('click', () => {
         resetFormProducto();
     });
 
@@ -988,8 +1176,9 @@
 
     function renderAdminLista() {
         const contenedor = document.getElementById('adminListaProductos');
+        if (!contenedor) return;
         if (productosData.length === 0) {
-            contenedor.innerHTML = '<div class="admin-empty"><i class="fas fa-box-open" style="font-size:2rem;opacity:0.3;"></i><br>No hay productos. Agrega el primero desde la pestana "Agregar producto".</div>';
+            contenedor.innerHTML = '<div class="admin-empty"><i class="fas fa-box-open" style="font-size:2rem;opacity:0.3;"></i><br>No hay productos. Agrega el primero desde la pestaña "Agregar producto".</div>';
             return;
         }
         contenedor.innerHTML = '';
@@ -1000,7 +1189,7 @@
                 <img src="${prod.imagen || 'https://picsum.photos/70/70?grayscale'}" alt="${prod.nombre}" onerror="this.src='https://picsum.photos/70/70?grayscale'">
                 <div class="admin-prod-info">
                     <strong>${prod.nombre}</strong>
-                    <span>${prod.descrip || 'Sin descripcion'}</span>
+                    <span>${prod.descrip || 'Sin descripción'}</span>
                 </div>
                 <div class="admin-prod-precio">$${parseFloat(prod.precio).toFixed(2)}</div>
                 <div class="admin-prod-acciones">
@@ -1048,7 +1237,7 @@
     function eliminarProducto(id) {
         const prod = productosData.find(p => p.id === id);
         if (!prod) return;
-        if (!confirm(`Eliminar "${prod.nombre}"? Esta accion no se puede deshacer.`)) return;
+        if (!confirm(`Eliminar "${prod.nombre}"? Esta acción no se puede deshacer.`)) return;
         productosData = productosData.filter(p => p.id !== id);
         guardarProductos(productosData);
         renderProductos();
@@ -1058,50 +1247,60 @@
     }
 
     function actualizarContador() {
-        document.getElementById('contadorProductos').textContent = productosData.length;
+        const contador = document.getElementById('contadorProductos');
+        if (contador) contador.textContent = productosData.length;
     }
 
     function mostrarAlerta(msg, tipo) {
         const alerta = document.getElementById('alertaAdmin');
-        alerta.textContent = msg;
-        alerta.className = `alerta-admin ${tipo}`;
-        setTimeout(() => { alerta.className = 'alerta-admin'; }, 3500);
+        if (alerta) {
+            alerta.textContent = msg;
+            alerta.className = `alerta-admin ${tipo}`;
+            setTimeout(() => { alerta.className = 'alerta-admin'; }, 3500);
+        } else {
+            alert(msg);
+        }
     }
 
     // =================== WHATSAPP ===================
     function initWhatsAppChatbot() {
         const waBtn = document.getElementById('whatsappBtn');
-        const telefonoEmpresa = "521234567890";
-        const mensajeBienvenida = "Hola! Soy el asistente virtual de LiliShop. Consultas sobre tallas, envios o ayuda con tu pedido?";
+        const telefonoPrincipal = "5493875624114";
+        const mensajeBienvenida = "Hola! Soy el asistente virtual de Shops LB. Consultas sobre tallas, envíos o ayuda con tu pedido?";
         waBtn.addEventListener('click', () => {
-            const urlWA = `https://wa.me/${telefonoEmpresa}?text=${encodeURIComponent(mensajeBienvenida + " (desde lilishop.com)")}`;
+            const urlWA = `https://wa.me/${telefonoPrincipal}?text=${encodeURIComponent(mensajeBienvenida + " (desde shopslb.com)")}`;
             window.open(urlWA, '_blank');
         });
         const tooltip = document.getElementById('tooltipWa');
-        waBtn.addEventListener('mouseenter', () => { tooltip.style.opacity = '1'; });
-        waBtn.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
+        waBtn.addEventListener('mouseenter', () => { if(tooltip) tooltip.style.opacity = '1'; });
+        waBtn.addEventListener('mouseleave', () => { if(tooltip) tooltip.style.opacity = '0'; });
     }
 
     // Smooth scroll
-    document.querySelectorAll('.nav-links a').forEach(anchor => {
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const hash = this.getAttribute('href');
-            if (hash && hash !== '#') {
+            if (hash && hash !== '#' && hash !== '#productos' && hash !== '#pedido' && hash !== '#contacto') {
                 e.preventDefault();
                 const target = document.querySelector(hash);
                 if (target) target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
-    document.querySelector('.hero .btn').addEventListener('click', (e) => {
-        e.preventDefault();
-        document.querySelector('#productos').scrollIntoView({ behavior: 'smooth' });
-    });
+    
+    const heroBtn = document.querySelector('.hero .btn');
+    if (heroBtn) {
+        heroBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#productos')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 
     // Inicializar
     renderProductos();
     actualizarListaPedido();
-    document.getElementById('email-order-form').addEventListener('submit', enviarPedidoEmail);
+    const emailForm = document.getElementById('email-order-form');
+    if (emailForm) emailForm.addEventListener('submit', enviarPedidoEmail);
     initWhatsAppChatbot();
 </script>
 </body>
